@@ -1,0 +1,307 @@
+---
+title: 'Technical Report: Principal Component Analysis (PCA) on the Iris Data Set'
+author: "LaBorde, Keaton"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Problem Statement
+
+In data analysis, especially when dealing with datasets with many correlated numerical variables, there is often a need to reduce the number of variables or dimensionality while retaining as much of the variability in the data as possible. This can help improve the efficiency of subsequent analysis, reduce multicollinearity where two or more independent variables in a model are strongly correlated, and makes the data easier to interpret.
+
+Principal Component Analysis (PCA) is a widely used technique for dimensionality reduction. PCA transforms the data into a new set of variables, called **principal components**, which are uncorrelated and ordered such that the first few components explain most of the variability in the data.
+
+This report applies PCA on the **Iris dataset**, which consists of multiple numerical features for different iris species. By performing PCA, we reduce the number of features while retaining most of the information, which will help in further analysis and modeling.
+
+# Description and Summary of the Data Set
+
+The **Iris dataset** is a well-known dataset in machine learning and statistics, consisting of 150 observations of iris flowers. The dataset includes three species of iris flowers: **Setosa**, **Versicolor**, and **Virginica**. Each species has 50 samples, and for each sample, four features are recorded:
+
+- Sepal Length (cm)
+- Sepal Width (cm)
+- Petal Length (cm)
+- Petal Width (cm)
+
+Thus, the dataset contains 150 rows (samples) and 4 columns (features). The goal is to analyze these features and reduce their dimensionality while preserving the variance of the dataset as much as possible.
+
+### Summary:
+- **Number of observations**: 150
+- **Number of features**: 4
+- **Number of species**: 3 (Setosa, Versicolor, Virginica)
+
+### Load the iris dataset and review it
+
+Lets check this dataset
+
+```{r}
+# Load in the dataset
+data(iris)
+
+# View Iris dataset
+head(knitr::kable(iris))
+
+# Structure of the iris dataset
+str(iris)
+
+# Summary statistics for each variable
+summary(iris)
+
+# Check for missing values
+any(is.na(iris))
+```
+
+# Data Exploratory Analysis
+
+Exploratory Data Analysis (EDA) was performed to understand the relationships between the features and identify potential correlations. Pairwise scatter plots were created to visually inspect these relationships:
+
+### Scatter Plots
+
+By using Pairwise relationships between the features using scatter plots we can visualize and observe if there are any two features are highly correlated, which might justify dimensionality reduction via PCA.
+
+```{r scatter-plots}
+# Load necessary libraries
+library(ggplot2)
+library(tidyverse)
+library(ggbiplot)
+```
+
+# Create pairwise scatter plots to check for correlations
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  facet_wrap(~ Species)
+```
+
+```{r}
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Species)) +
+  geom_point() +
+  facet_wrap(~ Species)
+```
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Width, color = Species)) +
+  geom_point() +
+  facet_wrap(~ Species)
+```
+
+```{r}
+ggplot(iris, aes(x = Sepal.Width, y = Petal.Width, color = Species)) +
+  geom_point() +
+  facet_wrap(~ Species)
+```
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, color = Species)) +
+  geom_point() +
+  facet_wrap(~ Species)
+```
+
+```{r}
+ggplot(iris, aes(x = Sepal.Width, y = Petal.Length, color = Species)) +
+  geom_point() +
+  facet_wrap(~ Species)
+```
+
+# Correlation Matrix
+
+Calculate the correlation matrix for the numerical features to quantitatively assess relationships between them.
+
+### Calculate the correlation matrix
+
+```{r}
+cor_matrix <- cor(iris[, 1:4])
+cor_matrix
+```
+
+As you can see there are a few different kinds of correlation between these numerical values. For example, `Petal Width` and `Petal Length` have a very strong positive correlation of 0.9628654 which is extremely close to 1. On the other hand `Sepal Width` and `Sepal.Length` have a very weak negative correlation of -0.1175698 which is very close to 0.
+
+# Principal Component Analysis and Explanation of the Results
+
+PCA will be performed by removing the categorical Species variable and applying the prcomp function. The data was scaled and centered before the analysis to standardize the variables. The result of PCA is as follows:
+
+### Remove any categorical data (Species)
+
+```{r}
+flowerData <- subset(iris, select = -Species)
+
+# View the first few rows of the flowerData
+head(flowerData)
+```
+
+```{r message=FALSE}
+library(psych)
+```
+
+### Check association between independent variables
+```{r}
+pairs.panels(flowerData,
+             gap = 0,
+             bg = "blue",
+             pch=21)
+```
+
+A bivariate scatter plots matrix with bivariate scatter plots below the diagonal, histograms on the diagonal, and the *Pearson correlation* above the diagonal.
+
+```{r}
+iris.pca <- prcomp(flowerData, scale = TRUE,
+                center = TRUE, retx = T)
+iris.pca
+```
+
+`center`: a logical value indicating whether the variables should be shifted to be zero centered.
+
+`scale`: a logical value indicating whether the variables should be scaled to have unit variance before the analysis takes place. 
+
+The default is FALSE for consistency with S, but in general scaling is advisable.
+
+`retx`: a logical value indicating whether the rotated variables should be returned.
+
+### Structure of the PCA object "iris.pca"
+```{r}
+str(iris.pca)
+```
+
+```{r}
+# Names for iris.pca
+attributes(iris.pca)
+
+# Check attributes
+iris.pca$sdev      #the standard deviations of the principal components (eigenvalues)
+iris.pca$center    #the variable means (means that were substracted)
+iris.pca$scale     #the variable standard deviations (the scaling applied to each variable)
+iris.pca$rotation  #the matrix of variable loadings (columns are eigenvectors)
+head(iris.pca$x)   #The coordinates of the individuals (observations) on the principal
+```
+
+Below are the PCA coefficients (***β~ij~***s) of the linear combinations of the original 5 variables:
+
+```{r}
+print(iris.pca)
+```
+
+```{r}
+# preview our object with summary
+summary((iris.pca))
+```
+
+The **first PC**, `PC~1~`, accounts for **72.96%** of the variability in the original data. The **second PC**, `PC~2~`,  accounts for **22.85%**. Together, they account for **95.81%** of the variability in the original `m` = 5 variables. This shows that the first two components capture most of the important information from the original data, reducing the need for all original features.
+
+* Principal components (PCs) are constrained to be ***uncorrelated/orthogonal/independent*** with each other.
+```{r}
+library(psych)
+pairs.panels(iris.pca$x,
+             gap=0,
+             bg = "blue",
+             pch=21)
+```
+
+Now the correlation coefficients are zero, so we can get rid of multi-collinearity issues.
+
+
+### Interpretation of Principal Components
+
+The PCA loadings indicate how much each feature contributes to each principal component:
+
+PC1: Strong positive loadings for Sepal Length, Petal Length, and Petal Width.
+PC2: Strong negative loading for Sepal Width.
+PC3: Primarily influenced by Petal Width and Petal Length.
+
+This suggests that the first principal component primarily reflects the overall size of the flower, while the second component captures the differences between sepal and petal sizes.
+
+# Orthogonality Checking of Principal Components
+
+One key property of PCA is that the principal components are orthogonal to each other, meaning they are uncorrelated. We verify this orthogonality by computing the dot product between pairs of principal components.
+
+### Check orthogonality of the principal components
+```{r}
+dot_product <- cor(iris.pca$x)
+dot_product
+```
+### Orthogoanility interpretation
+
+When computing the correlation matrix of the principal components, the results should show close to zero off the diagonal which it does. This means that the iris.pca is truly orthogonal. They capture independent and non-redundant information.
+
+# Biplot using `ggbiplot`function:
+
+```{r message=FALSE}
+library(devtools)
+
+install_github("vqv/ggbiplot")
+
+library(ggbiplot)
+
+# circle: The correlation circle is a visualization displaying how much the original variables are correlated with the first two principal components.
+ggbiplot(iris.pca, groups = iris$species, ellipse = TRUE, ellipse.prob = 0.8, circle = TRUE)
+```
+
+***circles* in the plot:** The correlation circle is a visualization displaying how much the original variables are correlated with the first two principal components.
+
+Here is a more detailed visual biplot using the factoextra library, highlighting the custom species from the iris.pca.
+
+```{r message=FALSE}
+# Load necessary library
+library(factoextra)
+
+# Plot the results with species labels
+fviz_pca(iris.pca, 
+         repel = TRUE, 
+         label = "var",         # Remove default numeric labels
+         habillage = iris$Species, # Color points by species
+         labelsize = 3) + 
+  theme_bw() +
+  labs(title = "Biplot of Iris Data with Species Labels")
+```
+
+### Interpreting the Biplot:
+
+created to visualize the relationship between the first two principal components and the species of the flowers. The biplot provides insight into how the species are distributed along the principal components
+
+As you can see, both the **observations (*flowers*)** and **variables (*flower characteristics*)** are plotted in the same graph:  
+
+  * Points represent observations, shapes and color represent species. Smaller distances between points suggest similar values on the original set of variables. For example, the ***Virginica*** and ***versicolor*** are similar to each other. However, the ***Sertosa*** is very different from the rest.  
+
+  * The ***vectors (arrows)*** represent ***variables***. The angle between vectors are proportional to the correlation. Smaller angles indicate stronger correlations. For example, `Petal Length` and `Petal Width` are positively correlated, `Sepal width` and `Sepal Length` are uncorrelated.
+
+  * The observations that are are farthest along the direction of a variable’s vector, have the highest values on that variable. For example, the ***Setosa*** have higher negative values on `Petal Length` and `Petal Width` with some higher values on `Sepal Width`.
+
+# Conclusion Including Advantages & Disadvantages of PCA and Its Applications
+
+### Conclusion
+
+PCA has been successfully applied to the Iris dataset to reduce its dimensionality from four features to two principal components which includes, the overall size of the flower and the differences between sepal and petal sizes and retains 95.81% of the variance. The first two principal components largely capture the size-related differences among the species, which gives a simplified representation of the data. The results demonstrate how PCA can aid in both visualization and subsequent analysis by reducing complexity without losing important information.
+
+### Advantages of PCA
+
+- Dimensionality Reduction: PCA reduces the number of variables, which can improve computational efficiency and reduce overfitting in machine learning models.
+
+- Multicollinearity Resolution: PCA transforms correlated features into uncorrelated principal components, PCA can help resolve multicollinearity issues in regression analysis.
+
+-Data Visualization: PCA allows for effective visualization of high-dimensional data by projecting it onto two or three principal components.
+
+### Disadvantages of PCA
+
+- Loss of Interpretability: While PCA is great for reducing dimensions, the principal components themselves are linear combinations of the original features and may be difficult to interpret.
+
+- Assumption of Linearity: PCA assumes linear relationships between features, which may not be suitable for all kinds of datasets.
+
+### Applications of PCA
+
+PCA is widely used in various fields:
+
+- Machine Learning: For reducing the dimensionality of feature sets, improving model performance, and preventing over fitting.
+
+- Image Processing: For reducing the size of image data while preserving important features.
+
+- Finance: For reducing the number of variables in portfolio optimization and risk management.
+
+# References
+1. Jolliffe, I. T. (2002). Principal Component Analysis. Springer Series in Statistics.
+
+2. Iglewicz, B., & Hoaglin, D. C. (1993). How to detect and handle outliers. Sage.
+
+
+
