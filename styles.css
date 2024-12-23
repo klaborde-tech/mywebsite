@@ -13,7 +13,12 @@ h1 {
 
 h2 {
     color: #333;
-    margin-top: 20px;
+    margin-top: 24px;
+}
+
+h3 {
+    color: #333;
+    margin-top: 18px;
 }
 
 .project {
@@ -77,5 +82,5 @@ a:hover {
 }
 
 p {
-    color: black;
+    color: #333;
 }
