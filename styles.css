@@ -7,12 +7,12 @@ body {
 
 h1 {
     text-align: center;
-    color: white;
+    color: #333;
     margin-top: 30px;
 }
 
 h2 {
-    color: white;
+    color: #333;
     margin-top: 20px;
 }
 
@@ -25,7 +25,7 @@ h2 {
 }
 
 .contact {
-    background-color: #0683D7;
+    background-color: #f4f4f4;
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
@@ -34,17 +34,17 @@ h2 {
 
 .information {
     font-size: 16px;
-    color: white;
+    color: #333;
 }
 
 .synopsis {
     font-size: 16px;
-    color: white;
+    color: #333;
 }
 
 .instructions {
     font-size: 16px;
-    color: white;
+    color: #333;
 }
 
 ul {
@@ -69,5 +69,5 @@ a:hover {
 }
 
 p {
-    color: white;
+    color: black;
 }
