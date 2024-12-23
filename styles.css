@@ -60,6 +60,11 @@ h3 {
     color: #333;
 }
 
+.centered {
+    text-align: center; 
+    color: white;
+}
+
 ul {
     list-style-type: none;
     padding-left: 0;
