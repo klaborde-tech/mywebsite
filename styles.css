@@ -97,3 +97,25 @@ a:hover {
 p {
     color: #333;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.container img {
+    width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.container .text {
+    max-width: 600px;
+}
+
+.text p {
+    line-height: 1.6;
+}
