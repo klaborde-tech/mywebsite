@@ -29,14 +29,26 @@ h3 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.aboutme {
+.container {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.aboutme {
+    text-align: left;
     background-color: #ADD8E6;
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .contact {
