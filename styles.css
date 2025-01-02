@@ -30,6 +30,8 @@ h3 {
 }
 
 .aboutme {
+    display: flex;
+    align-items: center;
     background-color: #ADD8E6;
     margin: 20px;
     padding: 20px;
