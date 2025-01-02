@@ -29,6 +29,14 @@ h3 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.aboutme {
+    background-color: #ADD8E6;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 .contact {
     background-color: #ADD8E6;
     margin: 20px;
