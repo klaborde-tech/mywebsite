@@ -21,7 +21,7 @@ h3 {
     margin-top: 18px;
 }
 
-.project {
+.project, .aboutme, .contact, .links {
     background-color: #ADD8E6;
     margin: 20px;
     padding: 20px;
@@ -36,42 +36,7 @@ h3 {
     gap: 20px;
 }
 
-.aboutme {
-    background-color: #ADD8E6;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-.contact {
-    background-color: #ADD8E6;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.links {
-    background-color: #ADD8E6;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.information {
-    font-size: 16px;
-    color: #333;
-}
-
-.synopsis {
-    font-size: 16px;
-    color: #333;
-}
-
-.instructions {
+.information, .synopsis, .instructions {
     font-size: 16px;
     color: #333;
 }
@@ -112,4 +77,174 @@ a:hover {
 
 p {
     color: #333;
+}
+
+@media only screen and (max-width: 768px) {
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #4527A0;
+    }
+    
+    h1 {
+        text-align: center;
+        color: #ADD8E6;
+        margin-top: 30px;
+    }
+    
+    h2 {
+        color: #333;
+        margin-top: 24px;
+    }
+    
+    h3 {
+        color: #333;
+        margin-top: 18px;
+    }
+    
+    .project, .aboutme, .contact, .links {
+        background-color: #ADD8E6;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .information, .synopsis, .instructions {
+        font-size: 16px;
+        color: #333;
+    }
+    
+    .centered {
+        text-align: center; 
+        color: #ADD8E6;
+        font-size: 24px;
+    }
+    
+    .centeredsmall {
+        text-align: center; 
+        color: #ADD8E6;
+        font-size: 20px;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    ul li {
+        margin-bottom: 10px;
+    }
+    
+    a {
+        display: inline; 
+        padding: 0;
+        margin-bottom: 0;  
+        color: blue;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    p {
+        color: #333;
+    }    
+
+}
+
+@media only screen and (max-width: 480px) {
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #4527A0;
+    }
+    
+    h1 {
+        text-align: center;
+        color: #ADD8E6;
+        margin-top: 30px;
+    }
+    
+    h2 {
+        color: #333;
+        margin-top: 24px;
+    }
+    
+    h3 {
+        color: #333;
+        margin-top: 18px;
+    }
+    
+    .project, .aboutme, .contact, .links {
+        background-color: #ADD8E6;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .information, .synopsis, .instructions {
+        font-size: 16px;
+        color: #333;
+    }
+    
+    .centered {
+        text-align: center; 
+        color: #ADD8E6;
+        font-size: 24px;
+    }
+    
+    .centeredsmall {
+        text-align: center; 
+        color: #ADD8E6;
+        font-size: 20px;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    ul li {
+        margin-bottom: 10px;
+    }
+    
+    a {
+        display: inline; 
+        padding: 0;
+        margin-bottom: 0;  
+        color: blue;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    p {
+        color: #333;
+    }    
+
 }
