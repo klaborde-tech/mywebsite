@@ -127,6 +127,11 @@ p {
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
     
+    .center-image img {
+        max-width: 80%;
+        height: auto;
+    }
+
     .container {
         flex-direction: column;
         text-align: center;
@@ -228,6 +233,11 @@ p {
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
     
+    .center-image img {
+        max-width: 90%;
+        height: auto;
+    }
+
     .container {
         flex-direction: column;
         text-align: center;
