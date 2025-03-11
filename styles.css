@@ -48,6 +48,7 @@ h3 {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .information, .synopsis, .instructions {
@@ -127,10 +128,12 @@ p {
     }
     
     .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container img {
+        margin-top: 20px;
     }
     
     .information, .synopsis, .instructions {
@@ -226,10 +229,12 @@ p {
     }
     
     .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container img {
+        margin-top: 20px;
     }
     
     .information, .synopsis, .instructions {
