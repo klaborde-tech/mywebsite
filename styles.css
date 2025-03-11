@@ -48,7 +48,6 @@ h3 {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 .information, .synopsis, .instructions {
