@@ -4,31 +4,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .center-image {
             text-align: center;
         }
     </style>
 </head>
+
+<div class="topnav" id="myTopnav">
+    <a href="/index.html">Home</a>
+    <a href="/contact.html">Contacts</a>
+    <div class="dropdown">
+        <button class="dropbtn">Projects
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="/projects.html#software-verification">Software & Verification Project</a>
+            <a href="/projects.html#data-mining">Data Mining Project</a>
+            <a href="/projects.html#computer-graphics">Computer Graphics Project</a>
+            <a href="/projects.html#unity">Unity Project</a>
+            <a href="/projects.html#database">Database Systems & Management Project</a>
+            <a href="/projects.html#data-visualization">Data Visualization Project</a>
+            <a href="/projects.html#data-modeling">Data Modeling Project</a>
+            <a href="/projects.html#object-oriented">Object Oriented Programming Project</a>
+            <a href="/projects.html#python">Python Project</a>
+        </div>
+    </div>
+    <a href="/about.html">About Me</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
 <body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <h1>Projects Page</h1> 
 
-    <!--Project 1-->
+    <!--Software Verification Project-->
 
-    <section class="project">
+    <section class="project" id="software-verification">
+        <h2>Software Verification Project</h2>
+        <p class="synopsis">Synopsis: This project was made with a group of 4 team members including myself called Dormhub, a mobile friendly full stack application to help faculty for colleges assign tasks to students living in the dorm rooms.
+            We followed some real world practices such as Agile methodologies, product visioning, user personas, all while using GitHub.
+            The app features role-based access control using JWT tokens for secure frontend-backend communication.
+            The frontend of the app was built using React+Vite in Visual Studio Code, and the backend with Spring Boot in Eclipse, using Postman, pgAdmin4, and JUnit for API and logic testing.   
+            We deployed the full stack app using Netlify for the frontend and Render for the backend. 
+            We then used some basic Search Engine Optimization with keywords, a description, favicon, and an Open Graph preview using the Google Search Console.
+            </p>
+        <p class="instructions">Instructions: Unfortunately my group members did not decide to keep the backend for our web application running due to financial circumstances. However, below are images for Admin users and Privileged users. 
+            You may also access the guest version of the app using the link below.</p>
+        <ul>
+            <li><a href="https://dormhub.netlify.app">DormHub Guest</a></li>
+
+            <div class="center-image">
+                <h3>Admin</h3>
+                <img src="./Projects/Software & Verification/Admin.png" alt="Admin" width="900" height="441">
+                <h3>Privileged User</h3>
+                <img src="./Projects/Software & Verification/Privileged.png" alt="Privileged" width="900" height="419">
+                <h3>Mobile Version</h3>
+                <img src="./Projects/Software & Verification/Mobile.png" alt="Mobile" width="596" height="823">
+            </div>
+        </ul>
+    </section>
+
+    <!--Data Mining Project-->
+
+        <section class="project" id="data-mining">
+        <h2>Data Mining Project</h2>
+        <p class="synopsis">Synopsis: This project was completed with one other group member for the Kaggle Titanic Machine Learning Competition.
+            We used various techniques for machine learning in order to predict the outcome of passengers surviving or dying on the night that the titanic ship sank.
+            We began by exploring the data to find the most influential variables for survival through preprocessing.
+            This included feature-engineering, normalization, standardization, one hot encoding and ordinal encoding for categorical data.
+            Once our data was cleaned and prepared we split it into training and testing sets using an 80/20 ratio.
+            To streamline model development and opitimization, we used machine learning pipelines and applied GridSearchCV to fine-tune hyperparameters for better performance.
+            We made 6 different models including: Random Forest Classifier, Decision Tree Classifier, K-Nearest-Neighbors Classifier, Support Vector Classifier, Logistic Regression, and Gaussian Naive Bayes.
+            After training and validating our modesl, we submitted our predictions to the Kaggle Titanic competition to asses our model's accuracy on the official leaderboard.
+            </p>
+        <p class="instructions">Instructions: To learn more about this project please visit the public github repository below where we have a short video of what we did and our code. 
+        </p>
+        <ul>
+            <li><a href="https://github.com/klaborde-technology/kaggle_titanic_422sp25">Kaggle Titanic GitHub</a></li>
+            <div class="center-image">
+                <img src="./Projects/Data Mining/Kaggle.png" alt="Kaggle" width="700" height="337">
+            </div>
+        </ul>
+    </section>
+
+    <!--Computer Graphics Project-->
+
+    <section class="project" id="computer-graphics">
+        <h2>Computer Graphics Project</h2>
+        <p class="synopsis">Synopsis: This project was completed by myself to demonstrate my knowledge about OpenGL and GLUT libraries for making a simple solar system.
+            I demonstrated how to create 4 celestial objects including the Sun, Earth, Moon, and Mars and their orbital paths.
+            The user is able to control all of the objects using keyboard and mouse which are explained in the instructions in the pop up window.
+            You are able to rotate, translate, scale, stop and start the animation of the planets and moons orbit, reset the scene, and quit the program.
+        </p>
+        <p class="instructions">Instructions: Please Review the images below! 
+        </p>
+        <ul>
+            <div class="center-image">
+                <h3>Instructions</h3>
+                <img src="./Projects/Computer Graphics/Instructions.png" alt="Instructions" width="543" height="183">
+                <h3>Solar System</h3>
+                <img src="./Projects/Computer Graphics/SolarSystem.png" alt="SolarSystem" width="600" height="469">
+            </div>
+        </ul>
+    </section>
+
+    <!--Unity Project-->
+
+    <section class="project" id="unity">
         <h2>Unity Project</h2>
         <p class="synopsis">Synopsis: This project was made in Unity using C# where I worked with 2 Graphic Designers and a Producer using agile practices to make an arcade like game for Black Friday.</p>
         <p class="instructions">Instructions: If you would like to play the game please download the zip file and extract all of the files below! 
                                               Then open the Shop_em_up.exe file.</p>
         <ul>
-            <li><a href="Projects/Unity Project/ShopEm_Up_MVP.zip" download>Download ShopemUp Zip</a></li>
+            <li><a href="./Projects/Unity Project/ShopEm_Up_MVP.zip" download>Download ShopemUp Zip</a></li>
         </ul>
     </section>
 
-    <!--Project 2-->
+    <!--Database Project-->
 
-    <section class="project">
-        <h2>Database Systems and Management</h2>
+    <section class="project" id="database">
+        <h2>Database Systems & Management</h2>
         <p class="synopsis">Synopsis: I was tasked with working with a partner in creating a new database based off of the USCB 2024 Registrar data.
                                       We created an ERD in 3rd Normal Form and created mock data for students in 3 different majors including: Information Science and Tech(ISAT), Computational Science(CSCI), and Psychology(PSYCH).
                                       There are 10 students in each grade from incoming to alumni for ISAT and CSCI but only 5 students for PSYCH majors leading up to Fall 2024.</p>                          
@@ -36,28 +133,28 @@
                                               If you have a blank database please download the SQL file and open it in notepad, then copy and paste this into a query that's assigned to a blank database and run the query.</p>
         <ul>
             <div class="center-image">
-                <img src="Projects/Database Systems and Management/B320_Team_12_ERD.png" alt="ERD" width="1000" height="627">
+                <img src="./Projects/Database Systems and Management/B320_Team_12_ERD.png" alt="ERD" width="1000" height="627">
             </div>
-            <li><a href="Projects/Database Systems and Management/B320_Team_12_CreateLoad.sql" download>Download Database Systems and Management SQL</a></li>
+            <li><a href="./Projects/Database Systems and Management/B320_Team_12_CreateLoad.sql" download>Download Database Systems and Management SQL</a></li>
         </ul>
     </section>
 
-    <!--Project 3-->
+    <!--Data Visualization Project-->
 
-    <section class="project">
+    <section class="project" id="data-visualization">
         <h2>Data Visualization</h2>
         <p class="synopsis">Synopsis: This project is about Principal Component Analysis being implemented into the Iris flower dataset.</p>
         <p class="instructions">Instructions: To learn more about this project please download the PDF file below about the project.
                                               In order to run the code itself you must have R Studio and knit the RMD file.</p>
         <ul>
-            <li><a href="Projects/Data Visualization/Principal Component Analysis (PCA) on the (1).pdf" download>Download Data Visualization PDF</a></li>
-            <li><a href="Projects/Data Visualization/Keaton_Final_Project.Rmd" download>Download Data Visualization RMD</a></li>
+            <li><a href="./Projects/Data Visualization/Principal Component Analysis (PCA) on the (1).pdf" download>Download Data Visualization PDF</a></li>
+            <li><a href="./Projects/Data Visualization/Keaton_Final_Project.Rmd" download>Download Data Visualization RMD</a></li>
         </ul> 
     </section>
 
-    <!--Project 4-->
+    <!--Data Modeling Project-->
 
-    <section class="project">
+    <section class="project" id="data-modeling">
         <h2>Data Modeling and Simulation</h2>
         <p class="synopsis">Synopsis: This project answers the financial questions about building a bowling alley on Hilton Head Island.
                                       The simulation takes in some real world data including employee costs, queuing systems for the bowling lanes, seasonal impacts and others.
@@ -66,15 +163,15 @@
         <p class="instructions">Instructions: For more information about the project please download the PDF file and the DOCX file.
                                               If you would like to run the simulation itself please download the XLSM file and enable the macros!</p>
         <ul>
-            <li><a href="Projects/Data Modeling and Simulation/Project Report.docx" download>Download Data Modeling and Simulation DOCX</a></li>
-            <li><a href="Projects/Data Modeling and Simulation/LaBoards Bowling Alley Simulation.pdf" download>Download Data Modeling and Simulation PDF</a></li>
-            <li><a href="Projects/Data Modeling and Simulation/FinalProject.xlsm" download>Download Data Modeling and Simulation XLSM</a></li>
+            <li><a href="./Projects/Data Modeling and Simulation/Project Report.docx" download>Download Data Modeling and Simulation DOCX</a></li>
+            <li><a href="./Projects/Data Modeling and Simulation/LaBoards Bowling Alley Simulation.pdf" download>Download Data Modeling and Simulation PDF</a></li>
+            <li><a href="./Projects/Data Modeling and Simulation/FinalProject.xlsm" download>Download Data Modeling and Simulation XLSM</a></li>
         </ul> 
     </section>
 
-    <!--Project 5-->
+    <!--Object Oriented Programming Project-->
 
-    <section class="project">
+    <section class="project" id="object-oriented">
         <h2>Object Oriented Programming I</h2>
         <p class="synopsis">Synopsis: This project was all about object oriented programming that emphasizes objects, classes and inhertiance to create a simple video game
                                       using the language Java.
@@ -86,9 +183,9 @@
         </ul> 
     </section>
 
-    <!--Project 6-->
+    <!--Python Project-->
 
-    <section class="project">
+    <section class="project" id="python">
         <h2>Computer Programming Techniques, Practices, and Tools</h2>
         <p class="synopsis">Synopsis: This project was about finding a relationship between two variables, bringing a weapon to school and threatening people with a weapon, in the Youth Risk Behavioral Surveillance System.
                                       I grabbed the data in YRBSS, put it in Microsoft Access, used SQL to filter the data to the variables needed, put that into an excel sheet, used Seaborn and Pandas library in python and created a user friendly data analysis and graph creation.</p>
@@ -96,9 +193,9 @@
                                               If you would like to run the code please download the PY file and the XLSX file. Open the python script in Spyder and run the script!                              
         </p>
         <ul>
-            <li><a href="Projects/Computer Programming Techniques, Practices, and Tools/Final_Project_Code.py" download>Download Computer Programming PY</a></li>
-            <li><a href="Projects/Computer Programming Techniques, Practices, and Tools/Actual_Project_Data.xlsx" download>Download Computer Programming XLSX</a></li>
-            <li><a href="Projects/Computer Programming Techniques, Practices, and Tools/Research Poster (K.Laborde, N.Kohler).pdf" download>Download Computer Programming PDF</a></li>
+            <li><a href="./Projects/Computer Programming Techniques, Practices, and Tools/Final_Project_Code.py" download>Download Computer Programming PY</a></li>
+            <li><a href="./Projects/Computer Programming Techniques, Practices, and Tools/Actual_Project_Data.xlsx" download>Download Computer Programming XLSX</a></li>
+            <li><a href="./Projects/Computer Programming Techniques, Practices, and Tools/Research Poster (K.Laborde, N.Kohler).pdf" download>Download Computer Programming PDF</a></li>
         </ul> 
     </section>
 
@@ -108,5 +205,37 @@
         <p>&copy; 2025 Keaton LaBorde. All rights reserved.</p>
     </section>
 
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+    <script>
+        // Get the button:
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
 </body>
 </html>

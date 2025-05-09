@@ -4,7 +4,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
+<div class="topnav" id="myTopnav">
+    <a href="/index.html">Home</a>
+    <a href="/contact.html">Contacts</a>
+    <div class="dropdown">
+        <button class="dropbtn">Projects
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="/projects.html#software-verification">Software & Verification Project</a>
+            <a href="/projects.html#data-mining">Data Mining Project</a>
+            <a href="/projects.html#computer-graphics">Computer Graphics Project</a>
+            <a href="/projects.html#unity">Unity Project</a>
+            <a href="/projects.html#database">Database Systems & Management Project</a>
+            <a href="/projects.html#data-visualization">Data Visualization Project</a>
+            <a href="/projects.html#data-modeling">Data Modeling Project</a>
+            <a href="/projects.html#object-oriented">Object Oriented Programming Project</a>
+            <a href="/projects.html#python">Python Project</a>
+        </div>
+    </div>
+    <a href="/about.html">About Me</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
 <body>
    <h1>Contact Page</h1> 
 
@@ -21,5 +46,16 @@
     <section class="copyright">
         <p>&copy; 2025 Keaton LaBorde. All rights reserved.</p>
     </section>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
 </body>
 </html>
