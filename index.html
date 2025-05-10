@@ -1,8 +1,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Portfolio</title>
+    <style>
+        .image-container {
+            display: flex;
+            gap: 200px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            flex-wrap: wrap; /* ensures responsiveness on small screens */
+        }
+        .image-container img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .left-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        }
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        @media screen and (max-width: 900px) {
+            .image-container {
+                display: flex;
+                gap: 20px;
+            }
+        }
+    </style>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -33,6 +67,17 @@
 <body>
     <h1>Welcome to my portfolio!</h1>
 
+    <!--My Image-->
+    <div class="image-container">
+        <div class="left-column">
+            <img src="Projects/kl-logo-transparent.png" alt="Keaton LaBorde Logo" width="400">
+            <section class="aboutme">
+                <p class="quote">"Try not to become a man of success, but rather become a man of value." – Albert Einstein</p>
+            </section>
+        </div>
+        <img src="Projects/Keaton-Senior-Home.jpg" alt="Sitting Senior Picture of Keaton" width="500">
+    </div>
+    
 
 
     <!--Copyright and author-->
