@@ -21,10 +21,6 @@ h3 {
     margin-top: 18px;
 }
 
-section.project {
-    scroll-margin-top: 60px;
-}
-
 .project, .aboutme, .contact, .links {
     background-color: #ADD8E6;
     margin: 20px;
