@@ -22,7 +22,7 @@ h3 {
 }
 
 section.project {
-    scroll-margin-top: 24px; /* Adjust to match your header height */
+    scroll-margin-top: 60px;
 }
 
 .project, .aboutme, .contact, .links {
@@ -108,6 +108,7 @@ p {
   overflow: visible;
   display: flex;
   align-items: center;
+  background-color: #160d38;
 }
 
 /* Style the links inside the navigation bar */
